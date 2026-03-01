@@ -504,7 +504,7 @@
       <!-- Foto producto -->
       <div class="hero-art">
         <div class="hero-photo-wrap">
-          <img src="img/huevos.jpg" alt="Huevos del Calle Calle" class="hero-photo" />
+          <img src="huevos.jpg" alt="Huevos del Calle Calle" class="hero-photo" />
         </div>
       </div>
 
