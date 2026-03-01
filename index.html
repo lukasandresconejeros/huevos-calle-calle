@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Huevos del Calle Calle | Frescura de Valdivia a tu Mesa</title>
+  <title>Huevos del Calle Calle – Valdivia</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,19 +12,19 @@
   <style>
     :root {
       --paper:    #F7F3EB;
-      --paper-2:  #EDE7D9;
-      --paper-3:  #DFD6C4;
-      --pine:     #1A3820;
-      --pine-2:   #2C5A34;
+      --paper-2: #EDE7D9;
+      --paper-3: #DFD6C4;
+      --pine:    #1A3820;
+      --pine-2:  #2C5A34;
       --ember:    #C14A08;
-      --ember-2:  #DC6B22;
+      --ember-2: #DC6B22;
       --ink:      #141610;
       --ink-2:    #464E38;
       --ink-3:    #848C74;
       --white:    #FFFFFF;
       --r:        12px;
-      --r-lg:     20px;
-      --ease:     .22s cubic-bezier(.4,0,.2,1);
+      --r-lg:    20px;
+      --ease:    .22s cubic-bezier(.4,0,.2,1);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,10 +35,8 @@
       background: var(--paper);
       color: var(--ink);
       overflow-x: hidden;
-      line-height: 1.5;
     }
 
-    /* Textura de papel sutil */
     body::after {
       content: '';
       position: fixed; inset: 0;
@@ -48,235 +46,417 @@
       z-index: 0;
     }
 
-    /* BARRA DE OFERTA */
+    /* BANNER */
     #banner {
       position: sticky; top: 0; z-index: 100;
       background: var(--pine);
-      color: rgba(247,243,235,.8);
+      color: rgba(247,243,235,.75);
       display: flex; align-items: center; justify-content: center;
-      gap: 12px; flex-wrap: wrap;
-      padding: 10px 24px;
-      font-size: 0.75rem; font-weight: 600;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      gap: 14px; flex-wrap: wrap;
+      padding: 9px 24px;
+      font-size: .73rem; font-weight: 500; letter-spacing: .04em;
     }
     #timer-display {
       font-family: 'Fraunces', serif;
-      font-size: 1rem; font-weight: 700;
-      color: var(--white);
-      background: rgba(255,255,255,0.1);
-      padding: 2px 8px; border-radius: 4px;
+      font-size: .95rem; font-weight: 600;
+      color: var(--paper);
+      font-variant-numeric: tabular-nums;
     }
+    .b-sep { opacity: .22; }
     .b-tag {
-      background: var(--ember);
-      color: var(--white);
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.16);
       border-radius: 100px;
-      padding: 3px 12px;
-      font-size: .65rem; text-transform: uppercase; letter-spacing: .05em;
+      padding: 2px 10px;
+      font-size: .67rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .08em;
+      color: var(--ember-2);
     }
 
+    /* PAGE */
     .page {
       position: relative; z-index: 1;
-      max-width: 1100px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 0 24px 80px;
+      padding: 0 24px 100px;
     }
 
-    /* SECCIÓN HERO */
+    /* HERO */
     .hero {
       display: grid;
       grid-template-columns: 1fr;
       gap: 40px;
-      padding: 60px 0;
+      padding: 68px 0 20px;
+      animation: rise .7s ease both;
     }
-    @media (min-width: 900px) {
-      .hero { grid-template-columns: 1.2fr 1fr; align-items: start; gap: 60px; padding: 100px 0; }
+    @media (min-width: 800px) {
+      .hero {
+        grid-template-columns: 55fr 45fr;
+        align-items: start;
+        gap: 56px;
+        padding: 84px 0 40px;
+      }
     }
 
+    .hero-l { display: flex; flex-direction: column; gap: 22px; }
+
     .eyebrow {
-      font-size: .75rem; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--pine-2);
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 20px;
+      font-size: .69rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--pine-2);
+      display: flex; align-items: center; gap: 10px;
+      animation: rise .7s .06s ease both;
     }
-    .eyebrow::before { content: ''; width: 30px; height: 2px; background: var(--ember); }
+    .eyebrow::before {
+      content: '';
+      display: block; width: 26px; height: 1.5px;
+      background: currentColor; flex-shrink: 0;
+    }
 
     .hero-title {
       font-family: 'Fraunces', serif;
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      font-weight: 700; line-height: 0.95;
+      font-size: clamp(2.8rem, 6.5vw, 5rem);
+      font-weight: 700; line-height: 1.0;
       color: var(--pine);
-      margin-bottom: 24px;
+      animation: rise .7s .1s ease both;
     }
-    .hero-title em { font-style: italic; color: var(--ember); display: block; }
+    .hero-title em {
+      font-style: italic; font-weight: 400;
+      color: var(--ember); display: block;
+    }
 
     .hero-desc {
-      font-size: 1.05rem; color: var(--ink-2);
-      line-height: 1.6; max-width: 480px;
-      margin-bottom: 32px;
+      font-size: .93rem; color: var(--ink-2);
+      line-height: 1.72; max-width: 420px;
+      animation: rise .7s .14s ease both;
     }
 
-    .chips { display: flex; gap: 12px; flex-wrap: wrap; }
+    .chips {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      animation: rise .7s .18s ease both;
+    }
     .chip {
       background: var(--white);
-      border: 1px solid var(--paper-3);
+      border: 1.5px solid var(--paper-3);
       border-radius: var(--r);
-      padding: 12px 20px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      padding: 10px 16px;
     }
-    .chip-label { font-size: .65rem; font-weight: 700; color: var(--ink-3); text-transform: uppercase; }
-    .chip-val { font-family: 'Fraunces', serif; font-size: 1.1rem; color: var(--pine); display: block; }
+    .chip-label {
+      font-size: .62rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink-3); display: block; margin-bottom: 3px;
+    }
+    .chip-val {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem; font-weight: 600; color: var(--pine);
+    }
 
-    /* CONTENEDOR DE IMAGEN */
+    .hero-r { animation: rise .7s .12s ease both; }
+
+    /* FOTO */
     .photo-wrap {
       border-radius: var(--r-lg);
       overflow: hidden;
       aspect-ratio: 4/3;
-      margin-bottom: 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      margin-bottom: 18px;
+      position: relative;
     }
-    .photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .photo-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(26,56,32,.08), transparent);
+      pointer-events: none;
+    }
+    .photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform .6s ease;
+    }
+    .photo-wrap:hover img { transform: scale(1.04); }
 
-    /* FORMULARIO */
+    /* FORM CARD */
     .form-card {
       background: var(--white);
-      border: 1px solid var(--paper-3);
+      border: 1.5px solid var(--paper-3);
       border-radius: var(--r-lg);
-      padding: 32px;
-      box-shadow: 0 30px 60px rgba(26,56,32,0.05);
+      padding: 30px 26px;
+      animation: rise .7s .16s ease both;
     }
-    .form-h { font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--pine); margin-bottom: 8px; }
-    .form-sub { font-size: .85rem; color: var(--ink-3); margin-bottom: 24px; }
+    @media (min-width: 800px) {
+      .form-card { position: sticky; top: 50px; }
+    }
 
-    .field { margin-bottom: 16px; }
-    .field label { font-size: .7rem; font-weight: 700; text-transform: uppercase; color: var(--ink-2); display: block; margin-bottom: 6px; }
+    .form-h {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem; font-weight: 600;
+      color: var(--pine); margin-bottom: 4px;
+    }
+    .form-sub {
+      font-size: .77rem; color: var(--ink-3);
+      margin-bottom: 24px; line-height: 1.5;
+    }
+
+    .field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 13px; }
+    .field label {
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink-2);
+    }
     .field input, .field select {
-      width: 100%; padding: 12px 16px;
-      border: 1.5px solid var(--paper-2);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: .87rem; color: var(--ink);
+      background: var(--paper);
+      border: 1.5px solid var(--paper-3);
       border-radius: var(--r);
-      font-family: inherit; font-size: .95rem;
-      transition: all var(--ease);
+      padding: 10px 13px;
+      outline: none; width: 100%;
+      transition: border-color var(--ease), box-shadow var(--ease);
+      -webkit-appearance: none;
     }
-    .field input:focus { border-color: var(--pine); outline: none; box-shadow: 0 0 0 4px rgba(26,56,32,0.05); }
+    .field input:focus, .field select:focus {
+      border-color: var(--pine-2);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(44,90,52,.1);
+    }
+    .field input::placeholder { color: var(--ink-3); }
 
-    .r2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .r2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
     .summary {
       background: var(--paper);
-      padding: 20px; border-radius: var(--r);
-      margin: 24px 0;
+      border: 1.5px solid var(--paper-2);
+      border-radius: var(--r);
+      padding: 13px 15px;
+      margin: 6px 0 16px;
+      display: flex; flex-direction: column; gap: 7px;
     }
-    .sum-row { display: flex; justify-content: space-between; font-size: .9rem; margin-bottom: 8px; }
-    .sum-row.tot { border-top: 1px solid var(--paper-3); pt: 12px; mt: 12px; font-weight: 700; color: var(--pine); font-size: 1.1rem; }
+    .sum-row {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: .81rem; color: var(--ink-2);
+    }
+    .sum-row span:last-child { font-weight: 600; color: var(--ink); }
+    .sum-row.tot { border-top: 1px solid var(--paper-3); padding-top: 8px; margin-top: 2px; }
+    .sum-row.tot span {
+      font-family: 'Fraunces', serif;
+      font-size: 1.08rem; font-weight: 600; color: var(--pine);
+    }
+    .free-tag {
+      display: inline-block;
+      background: var(--pine); color: var(--paper);
+      border-radius: 4px; padding: 1px 6px;
+      font-size: .61rem; font-weight: 700;
+      letter-spacing: .07em; text-transform: uppercase;
+      margin-left: 5px;
+    }
 
     .btn-cta {
-      width: 100%; padding: 16px;
-      background: var(--ember); color: white;
+      width: 100%; padding: 13px 20px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: .88rem; font-weight: 700; letter-spacing: .03em;
+      color: var(--white);
+      background: var(--ember);
       border: none; border-radius: var(--r);
-      font-weight: 700; font-size: 1rem;
-      cursor: pointer; transition: transform 0.2s, background 0.2s;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: background var(--ease), transform var(--ease);
     }
-    .btn-cta:hover { background: var(--ember-2); transform: translateY(-2px); }
+    .btn-cta:hover { background: var(--ember-2); transform: translateY(-1px); }
+    .btn-cta:active { transform: scale(.99); }
 
-    .free-tag { background: #2C5A34; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.6rem; margin-left: 5px; }
+    .form-foot {
+      text-align: center; font-size: .67rem;
+      color: var(--ink-3); margin-top: 10px;
+    }
 
-    /* SECCIÓN FEATURES */
+    /* FEATURES */
+    .why { margin-top: 80px; animation: rise .7s .22s ease both; }
+
+    .sec-head {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+    }
+    .sec-label {
+      font-size: .69rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--pine-2); white-space: nowrap;
+    }
+    .sec-rule { flex: 1; height: 1px; background: var(--paper-3); }
+
+    .why-h {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.65rem, 3.5vw, 2.5rem);
+      font-weight: 600; color: var(--pine);
+      margin-bottom: 32px; line-height: 1.18; max-width: 480px;
+    }
+
     .features {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px; margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      border: 1.5px solid var(--paper-3);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      gap: 1px;
+      background: var(--paper-3);
     }
-    .feat-card {
-      background: var(--white); padding: 32px; border-radius: var(--r-lg);
-      border: 1px solid var(--paper-3);
+    .feat {
+      background: var(--white); padding: 26px 22px;
+      transition: background var(--ease);
     }
-    .feat-n { font-family: 'Fraunces', serif; font-size: 2rem; color: var(--paper-3); margin-bottom: 12px; }
-    .feat-h { font-weight: 700; color: var(--pine); margin-bottom: 8px; }
+    .feat:hover { background: var(--paper); }
+    .feat-n {
+      font-family: 'Fraunces', serif;
+      font-size: 2.6rem; font-weight: 700;
+      color: var(--paper-3); line-height: 1;
+      margin-bottom: 14px;
+    }
+    .feat-h { font-size: .87rem; font-weight: 700; color: var(--pine); margin-bottom: 6px; }
+    .feat-p { font-size: .77rem; color: var(--ink-2); line-height: 1.62; }
+
+    /* TESTIMONIOS */
+    .testimonials { margin-top: 72px; animation: rise .7s .26s ease both; }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px; margin-top: 24px;
+    }
+    .testi {
+      background: var(--pine);
+      border-radius: var(--r-lg);
+      padding: 28px 24px;
+      position: relative; overflow: hidden;
+    }
+    .testi::before {
+      content: '\201C';
+      font-family: 'Fraunces', serif;
+      font-size: 9rem; font-style: italic;
+      color: rgba(255,255,255,.05);
+      position: absolute; top: -18px; left: 10px;
+      line-height: 1; pointer-events: none;
+    }
+    .stars { color: var(--ember-2); font-size: .7rem; letter-spacing: .12em; margin-bottom: 12px; }
+    .testi blockquote {
+      font-family: 'Fraunces', serif;
+      font-size: .9rem; font-style: italic; font-weight: 400;
+      color: rgba(247,243,235,.85);
+      line-height: 1.68; margin-bottom: 14px;
+      position: relative;
+    }
+    .testi cite {
+      font-size: .67rem; font-weight: 700;
+      letter-spacing: .09em; text-transform: uppercase;
+      color: rgba(247,243,235,.38); font-style: normal;
+    }
 
     /* TOAST */
     #toast {
-      position: fixed; bottom: 30px; right: 30px;
-      background: var(--pine); color: white;
-      padding: 16px 24px; border-radius: var(--r);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      transform: translateY(200%); transition: transform 0.4s;
-      z-index: 1000;
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      background: var(--pine); color: var(--paper);
+      border-radius: var(--r);
+      padding: 13px 18px;
+      font-size: .81rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,.18);
+      transform: translateY(100px); opacity: 0;
+      transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .4s;
+      max-width: 270px; line-height: 1.5;
     }
-    #toast.show { transform: translateY(0); }
+    #toast.show { transform: translateY(0); opacity: 1; }
 
-    /* ANIMACIONES */
-    [data-animate] { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
-    [data-animate].visible { opacity: 1; transform: translateY(0); }
-
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
 
   <div id="banner">
-    <span>OFERTA DE LANZAMIENTO</span>
+    <span style="opacity:.55">Oferta especial activa</span>
+    <span class="b-sep">·</span>
     <span id="timer-display">07:00</span>
-    <span class="b-tag">Envío Gratis (+2 docenas)</span>
+    <span class="b-sep">·</span>
+    <span class="b-tag">Envío gratis con +2 docenas</span>
   </div>
 
   <div class="page">
+
     <section class="hero">
-      <div class="hero-l" data-animate>
-        <span class="eyebrow">Directo desde el campo valdiviano</span>
-        <h1 class="hero-title">Huevos del <em>Calle Calle</em></h1>
-        <p class="hero-desc">Frescura inigualable, recolectados al alba y entregados en la puerta de tu hogar en Valdivia. Gallinas libres, sabor real.</p>
-        
+
+      <div class="hero-l">
+        <span class="eyebrow">Delivery en Valdivia &nbsp;·&nbsp; 08:00–18:00 hrs</span>
+
+        <h1 class="hero-title">
+          Huevos del<br/>
+          <em>Calle Calle</em>
+        </h1>
+
+        <p class="hero-desc">
+          Llevamos a tu mesa huevos de calidad superior, seleccionados cuidadosamente para garantizar una frescura inigualable y el mejor sabor de la región.
+        </p>
+
         <div class="chips">
           <div class="chip">
-            <span class="chip-label">Precio Docena</span>
-            <span class="chip-val">$3.500</span>
+            <span class="chip-label">Precio</span>
+            <span class="chip-val">$3.500 / docena</span>
           </div>
           <div class="chip">
-            <span class="chip-label">Reparto</span>
+            <span class="chip-label">Despacho</span>
             <span class="chip-val">$1.500</span>
           </div>
         </div>
       </div>
 
-      <div class="hero-r" data-animate>
+      <div class="hero-r">
+
         <div class="photo-wrap">
-          <img src="https://images.unsplash.com/photo-1587486914762-8f05560f69d3?auto=format&fit=crop&q=80&w=800" alt="Huevos frescos" />
+          <img src="img/huevos.jpg" alt="Huevos del Calle Calle, Valdivia" />
         </div>
 
         <div class="form-card">
-          <h2 class="form-h">Haz tu pedido ahora</h2>
-          <p class="form-sub">Recibe hoy mismo coordinando por WhatsApp.</p>
-          
-          <form id="order-form">
+          <p class="form-h">Reserva tu pedido</p>
+          <p class="form-sub">Completa el formulario y te confirmamos por WhatsApp al instante.</p>
+
+          <form id="order-form" novalidate>
+
+            <div class="r2">
+              <div class="field">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" placeholder="Tu nombre" required />
+              </div>
+              <div class="field">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" placeholder="+56 9 XXXX XXXX" required />
+              </div>
+            </div>
+
             <div class="field">
-              <label>Nombre Completo</label>
-              <input type="text" id="nombre" placeholder="Tu nombre" required />
+              <label for="direccion">Dirección de entrega</label>
+              <input type="text" id="direccion" placeholder="Ej: Picarte 1234, Valdivia" required />
             </div>
 
             <div class="r2">
               <div class="field">
-                <label>Docenas</label>
-                <input type="number" id="docenas" value="1" min="1" />
+                <label for="docenas">Docenas</label>
+                <input type="number" id="docenas" min="1" max="100" value="1" required />
               </div>
               <div class="field">
-                <label>Horario</label>
+                <label for="horario">Horario</label>
                 <select id="horario">
-                  <option>Mañana (09:00 - 13:00)</option>
-                  <option>Tarde (14:00 - 18:00)</option>
+                  <option value="08:00-10:00">08:00 – 10:00</option>
+                  <option value="10:00-12:00">10:00 – 12:00</option>
+                  <option value="12:00-14:00" selected>12:00 – 14:00</option>
+                  <option value="14:00-16:00">14:00 – 16:00</option>
+                  <option value="16:00-18:00">16:00 – 18:00</option>
                 </select>
               </div>
             </div>
 
-            <div class="field">
-              <label>Dirección en Valdivia</label>
-              <input type="text" id="direccion" placeholder="Ej: Av. Alemania 123" required />
-            </div>
-
             <div class="summary">
               <div class="sum-row">
-                <span>Subtotal</span>
-                <span id="sub-val">$3.500</span>
+                <span id="subtotal-label">Subtotal (1 doc.)</span>
+                <span id="subtotal-val">$3.500</span>
               </div>
               <div class="sum-row">
-                <span>Envío</span>
-                <span id="env-val">$1.500</span>
+                <span>Despacho</span>
+                <span id="envio-val">$1.500</span>
               </div>
               <div class="sum-row tot">
                 <span>Total a pagar</span>
@@ -284,96 +464,204 @@
               </div>
             </div>
 
-            <button type="submit" class="btn-cta">Pedir por WhatsApp →</button>
+            <button type="submit" class="btn-cta">
+              Pedir por WhatsApp &nbsp;↗
+            </button>
+            <p class="form-foot">Sin spam. Tus datos están seguros.</p>
+
           </form>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="why">
+      <div class="sec-head">
+        <span class="sec-label">Por qué elegirnos</span>
+        <span class="sec-rule"></span>
+      </div>
+      <h2 class="why-h">Calidad premium y sabor excepcional en tu hogar</h2>
+      <div class="features">
+        <div class="feat">
+          <div class="feat-n">01</div>
+          <div class="feat-h">Calidad Garantizada</div>
+          <p class="feat-p">Seleccionamos cada huevo bajo estrictos estándares para asegurar un producto de excelencia.</p>
+        </div>
+        <div class="feat">
+          <div class="feat-n">02</div>
+          <div class="feat-h">Sabor Superior</div>
+          <p class="feat-p">Notarás la diferencia en el color de la yema y la riqueza de sabor en todas tus comidas.</p>
+        </div>
+        <div class="feat">
+          <div class="feat-n">03</div>
+          <div class="feat-h">Delivery puntual</div>
+          <p class="feat-p">Entregamos en toda Valdivia de 08:00 a 18:00 en el horario que tú eliges.</p>
+        </div>
+        <div class="feat">
+          <div class="feat-n">04</div>
+          <div class="feat-h">Frescura Máxima</div>
+          <p class="feat-p">Nuestra logística directa asegura que el producto llegue a tu mesa en tiempo récord.</p>
         </div>
       </div>
     </section>
 
-    <div class="features">
-      <div class="feat-card" data-animate>
-        <div class="feat-n">01</div>
-        <div class="feat-h">Libres a Pastoreo</div>
-        <p>Gallinas criadas con respeto, alimentadas de forma natural en praderas valdivianas.</p>
+    <section class="testimonials">
+      <div class="sec-head">
+        <span class="sec-label">Lo que dicen nuestros clientes</span>
+        <span class="sec-rule"></span>
       </div>
-      <div class="feat-card" data-animate>
-        <div class="feat-n">02</div>
-        <div class="feat-h">Entrega Express</div>
-        <p>Si pides antes de las 11:00, recibes el mismo día en cualquier punto de la ciudad.</p>
+      <div class="testi-grid">
+        <div class="testi">
+          <div class="stars">★★★★★</div>
+          <blockquote>"La calidad es increíble, son mucho más ricos que cualquier otro que haya probado."</blockquote>
+          <cite>Valentina R. — Las Ánimas</cite>
+        </div>
+        <div class="testi">
+          <div class="stars">★★★★★</div>
+          <blockquote>"El sabor es de otro nivel, muy consistentes y el despacho es súper responsable."</blockquote>
+          <cite>Pablo M. — Centro Valdivia</cite>
+        </div>
+        <div class="testi">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Muy recomendados. Se nota la calidad premium apenas los rompes. ¡Exquisitos!"</blockquote>
+          <cite>Francisca A. — Isla Teja</cite>
+        </div>
       </div>
-      <div class="feat-card" data-animate>
-        <div class="feat-n">03</div>
-        <div class="feat-h">Sin Intermediarios</div>
-        <p>Del nido a tu mesa. Esto nos permite asegurar el mejor precio y la máxima calidad.</p>
-      </div>
-    </div>
+    </section>
+
   </div>
 
-  <div id="toast">¡Mensaje listo! Redirigiendo...</div>
+  <div id="toast"></div>
 
   <script>
+    /* CONFIGURACIÓN */
     const PRECIO_DOCENA = 3500;
-    const ENVIO_BASE = 1500;
-    const WHATSAPP_NUM = "56912345678"; // <--- CAMBIA ESTO
+    const PRECIO_ENVIO  = 1500;
+    const WHATSAPP_NUM  = '56912345678';                           // ← reemplaza
+    const WEBHOOK_URL   = 'https://TU-WEBHOOK-URL-AQUI.com/pedidos'; // ← reemplaza
 
-    const inputDocenas = document.getElementById('docenas');
-    const subVal = document.getElementById('sub-val');
-    const envVal = document.getElementById('env-val');
-    const totalVal = document.getElementById('total-val');
-
-    function formatCLP(num) {
-      return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(num);
+    /* UTILIDADES */
+    function clp(n) {
+      return new Intl.NumberFormat('es-CL', {
+        style: 'currency', currency: 'CLP', maximumFractionDigits: 0
+      }).format(n);
+    }
+    function showToast(msg, ms = 3500) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), ms);
     }
 
-    function actualizarTotales() {
-      const cant = parseInt(inputDocenas.value) || 1;
-      const subtotal = cant * PRECIO_DOCENA;
-      const envio = cant >= 2 ? 0 : ENVIO_BASE;
-      const total = subtotal + envio;
+    /* TEMPORIZADOR */
+    let timerActive = false, timerSeconds = 0, timerInterval = null;
 
-      subVal.textContent = formatCLP(subtotal);
-      envVal.innerHTML = envio === 0 ? `FREE <span class="free-tag">OFERTA</span>` : formatCLP(envio);
-      totalVal.textContent = formatCLP(total);
-    }
+    function startTimer() {
+      const KEY_DATE = 'hcc_timer_date';
+      const KEY_SECS = 'hcc_timer_secs';
+      const today    = new Date().toDateString();
 
-    inputDocenas.addEventListener('input', actualizarTotales);
-
-    // Formulario
-    document.getElementById('order-form').onsubmit = (e) => {
-      e.preventDefault();
-      const nombre = document.getElementById('nombre').value;
-      const direccion = document.getElementById('direccion').value;
-      const docenas = inputDocenas.value;
-      
-      const texto = `Hola! Quisiera pedir ${docenas} docenas de huevos. %0A%0A*Nombre:* ${nombre}%0A*Dirección:* ${direccion}%0A*Total:* ${totalVal.textContent}`;
-      
-      document.getElementById('toast').classList.add('show');
-      setTimeout(() => {
-        window.open(`https://wa.me/${WHATSAPP_NUM}?text=${texto}`, '_blank');
-        document.getElementById('toast').classList.remove('show');
-      }, 1000);
-    };
-
-    // Animación al hacer scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
-
-    // Timer Simple
-    let time = 420; // 7 minutos
-    setInterval(() => {
-      if(time > 0) {
-        time--;
-        const mins = Math.floor(time/60);
-        const secs = time % 60;
-        document.getElementById('timer-display').textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      if (localStorage.getItem(KEY_DATE) === today) {
+        const rem = parseInt(localStorage.getItem(KEY_SECS) || '0', 10);
+        if (rem <= 0) {
+          updateTimerDisplay('00:00');
+          document.querySelector('.b-tag').textContent = 'Oferta expirada';
+          return;
+        }
+        timerSeconds = rem;
+      } else {
+        timerSeconds = 7 * 60;
+        localStorage.setItem(KEY_DATE, today);
+        localStorage.setItem(KEY_SECS, timerSeconds.toString());
       }
-    }, 1000);
 
+      timerActive = true;
+      renderTimer();
+
+      timerInterval = setInterval(() => {
+        timerSeconds--;
+        if (timerSeconds <= 0) {
+          clearInterval(timerInterval);
+          timerActive = false;
+          localStorage.setItem(KEY_SECS, '0');
+          updateTimerDisplay('00:00');
+          document.querySelector('.b-tag').textContent = 'Oferta expirada';
+          recalcular();
+        } else {
+          localStorage.setItem(KEY_SECS, timerSeconds.toString());
+          renderTimer();
+        }
+      }, 1000);
+    }
+
+    function renderTimer() {
+      const m = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+      const s = String(timerSeconds % 60).padStart(2, '0');
+      updateTimerDisplay(`${m}:${s}`);
+    }
+    function updateTimerDisplay(v) {
+      document.getElementById('timer-display').textContent = v;
+    }
+
+    /* CALCULADORA */
+    function recalcular() {
+      const docenas     = parseInt(document.getElementById('docenas').value, 10) || 1;
+      const subtotal    = docenas * PRECIO_DOCENA;
+      const envioGratis = timerActive && docenas > 2;
+      const envio       = envioGratis ? 0 : PRECIO_ENVIO;
+      const total       = subtotal + envio;
+
+      document.getElementById('subtotal-label').textContent = `Subtotal (${docenas} doc.)`;
+      document.getElementById('subtotal-val').textContent   = clp(subtotal);
+      document.getElementById('envio-val').innerHTML = envioGratis
+        ? `${clp(0)} <span class="free-tag">GRATIS</span>`
+        : clp(envio);
+      document.getElementById('total-val').textContent = clp(total);
+
+      return { docenas, subtotal, envio, total, envioGratis };
+    }
+    document.getElementById('docenas').addEventListener('input', recalcular);
+
+    /* SUBMIT */
+    document.getElementById('order-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const telefono = document.getElementById('telefono').value.trim();
+      const telClean = telefono.replace(/[\s\-\+]/g, '');
+      if (!/^(56)?9\d{8}$/.test(telClean)) {
+        showToast('Ingresa un teléfono válido', 4000);
+        return;
+      }
+
+      const nombre    = document.getElementById('nombre').value.trim();
+      const direccion = document.getElementById('direccion').value.trim();
+      const horario   = document.getElementById('horario').value;
+
+      if (!nombre || !direccion) {
+        showToast('Completa nombre y dirección.', 3500);
+        return;
+      }
+
+      const { docenas, subtotal, envio, total, envioGratis } = recalcular();
+
+      const msg = [
+        `🥚 *Pedido – Huevos del Calle Calle*`, ``,
+        `👤 *Nombre:* ${nombre}`,
+        `📍 *Dirección:* ${direccion}`,
+        `📦 *Docenas:* ${docenas}`,
+        `🕐 *Horario:* ${horario} hrs`, ``,
+        `💰 *Total a pagar: ${clp(total)}*`,
+        `Por favor confirma disponibilidad. ¡Gracias!`
+      ].join('\n');
+
+      showToast('¡Abriendo WhatsApp…!');
+      setTimeout(() => window.open(
+        `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(msg)}`, '_blank'
+      ), 600);
+    });
+
+    startTimer();
+    recalcular();
   </script>
 </body>
 </html>
