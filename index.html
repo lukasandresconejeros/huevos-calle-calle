@@ -9,20 +9,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+  <!-- Google Maps: descomenta y pon tu API key cuando la tengas -->
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&libraries=places&callback=initAutocomplete"></script> -->
+
   <style>
     :root {
-      --paper:    #F7F3EB;
+      --paper:   #F7F3EB;
       --paper-2: #EDE7D9;
       --paper-3: #DFD6C4;
       --pine:    #1A3820;
       --pine-2:  #2C5A34;
       --ember:   #C14A08;
       --ember-2: #DC6B22;
-      --ink:      #141610;
-      --ink-2:    #464E38;
-      --ink-3:    #848C74;
-      --white:    #FFFFFF;
-      --r:        12px;
+      --ink:     #141610;
+      --ink-2:   #464E38;
+      --ink-3:   #848C74;
+      --white:   #FFFFFF;
+      --r:       12px;
       --r-lg:    20px;
       --ease:    .22s cubic-bezier(.4,0,.2,1);
     }
@@ -364,24 +367,29 @@
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+
+    .pac-container { font-family: 'Plus Jakarta Sans', sans-serif !important; z-index: 9999; }
   </style>
 </head>
 <body>
 
+  <!-- BANNER -->
   <div id="banner">
-    <span style="opacity:.55">Oferta especial de bienvenida</span>
+    <span style="opacity:.55">Oferta especial activa</span>
     <span class="b-sep">·</span>
     <span id="timer-display">07:00</span>
     <span class="b-sep">·</span>
-    <span class="b-tag">Envío gratis pidiendo +2 docenas</span>
+    <span class="b-tag">Envío gratis con +2 docenas</span>
   </div>
 
   <div class="page">
 
+    <!-- HERO -->
     <section class="hero">
 
+      <!-- Texto izquierda -->
       <div class="hero-l">
-        <span class="eyebrow">Delivery Express en Valdivia &nbsp;·&nbsp; 08:00–18:00 hrs</span>
+        <span class="eyebrow">Delivery en Valdivia &nbsp;·&nbsp; 08:00–18:00 hrs</span>
 
         <h1 class="hero-title">
           Huevos del<br/>
@@ -389,7 +397,7 @@
         </h1>
 
         <p class="hero-desc">
-          Lo mejor para tu cocina. Selección de calidad entregada directamente en la puerta de tu hogar en Valdivia — frescura garantizada en cada pedido.
+          Directamente a tu mesa, recolectados cada mañana a orillas del río Calle Calle — sin intermediarios, solo frescura real.
         </p>
 
         <div class="chips">
@@ -404,16 +412,20 @@
         </div>
       </div>
 
+      <!-- Foto + formulario derecha -->
       <div class="hero-r">
+
+        <!-- huevos.jpg debe estar en la raíz del repositorio junto a index.html -->
         <div class="photo-wrap">
-          <img src="huevos.jpg" alt="Huevos del Calle Calle, Valdivia" />
+          <img src="img/huevos.jpg" alt="Huevos del Calle Calle, Valdivia" />
         </div>
 
         <div class="form-card">
           <p class="form-h">Reserva tu pedido</p>
-          <p class="form-sub">Completa tus datos y coordinamos la entrega por WhatsApp al instante.</p>
+          <p class="form-sub">Completa el formulario y te confirmamos por WhatsApp al instante.</p>
 
           <form id="order-form" novalidate>
+
             <div class="r2">
               <div class="field">
                 <label for="nombre">Nombre</label>
@@ -465,61 +477,65 @@
             <button type="submit" class="btn-cta">
               Pedir por WhatsApp &nbsp;↗
             </button>
-            <p class="form-foot">Tus datos están protegidos.</p>
+            <p class="form-foot">Sin spam. Tus datos están seguros.</p>
+
           </form>
         </div>
       </div>
+
     </section>
 
+    <!-- FEATURES -->
     <section class="why">
       <div class="sec-head">
-        <span class="sec-label">Nuestras Ventajas</span>
+        <span class="sec-label">Por qué elegirnos</span>
         <span class="sec-rule"></span>
       </div>
-      <h2 class="why-h">Calidad y frescura para los hogares de Valdivia</h2>
+      <h2 class="why-h">Llevando lo mejor del sur a los hogares de Valdivia</h2>
       <div class="features">
         <div class="feat">
           <div class="feat-n">01</div>
-          <div class="feat-h">Selección Premium</div>
-          <p class="feat-p">Trabajamos para asegurar huevos de tamaño y calidad constante en cada bandeja.</p>
+          <div class="feat-h">Crianza natural</div>
+          <p class="feat-p">Nuestras gallinas crecen libres, sin jaulas, en praderas del sur de Chile.</p>
         </div>
         <div class="feat">
           <div class="feat-n">02</div>
-          <div class="feat-h">Frescura Garantizada</div>
-          <p class="feat-p">Rotación constante de stock para que siempre recibas un producto fresco y delicioso.</p>
+          <div class="feat-h">Recolección diaria</div>
+          <p class="feat-p">Cada mañana recogemos los huevos para garantizar frescura máxima en tu entrega.</p>
         </div>
         <div class="feat">
           <div class="feat-n">03</div>
-          <div class="feat-h">Delivery Puntual</div>
-          <p class="feat-p">Entregamos en toda Valdivia de 08:00 a 18:00 en el horario que mejor te acomode.</p>
+          <div class="feat-h">Delivery puntual</div>
+          <p class="feat-p">Entregamos en toda Valdivia de 08:00 a 18:00 en el horario que tú eliges.</p>
         </div>
         <div class="feat">
           <div class="feat-n">04</div>
-          <div class="feat-h">Servicio Directo</div>
-          <p class="feat-p">Sin filas ni esperas. Llevamos tu pedido a casa con un empaque seguro y confiable.</p>
+          <div class="feat-h">Empaque seguro</div>
+          <p class="feat-p">Embalaje biodegradable para que cada huevo llegue perfecto a tu puerta.</p>
         </div>
       </div>
     </section>
 
+    <!-- TESTIMONIOS -->
     <section class="testimonials">
       <div class="sec-head">
-        <span class="sec-label">Clientes Satisfechos</span>
+        <span class="sec-label">Lo que dicen nuestros clientes</span>
         <span class="sec-rule"></span>
       </div>
       <div class="testi-grid">
         <div class="testi">
           <div class="stars">★★★★★</div>
-          <blockquote>"Excelente servicio, muy cómodos para pedir y llegan siempre impecables."</blockquote>
+          <blockquote>"Muy buena calidad, mucho mejor que en el super. Se nota la diferencia."</blockquote>
           <cite>Valentina R. — Las Ánimas</cite>
         </div>
         <div class="testi">
           <div class="stars">★★★★★</div>
-          <blockquote>"Buen tamaño y el delivery es súper puntual. Los pido todas las semanas para mi casa."</blockquote>
+          <blockquote>"Buen color y sabor, el delivery siempre puntual. Los pido todas las semanas."</blockquote>
           <cite>Pablo M. — Centro Valdivia</cite>
         </div>
         <div class="testi">
           <div class="stars">★★★★★</div>
-          <blockquote>"Me encanta la facilidad de pedir por WhatsApp. Muy recomendados por precio y calidad."</blockquote>
+          <blockquote>"Me gustaron mucho, el sabor no tiene comparación con los del supermercado."</blockquote>
           <cite>Francisca A. — Isla Teja</cite>
         </div>
       </div>
@@ -529,19 +545,28 @@
 
   <div id="toast"></div>
 
+  <!-- Botón de prueba: borra el timer del localStorage para testear -->
+  <!-- Elimina este bloque antes de lanzar en producción -->
+  <div style="position:fixed;bottom:24px;left:24px;z-index:200;">
+    <button onclick="localStorage.removeItem('hcc_timer_date');localStorage.removeItem('hcc_timer_secs');location.reload();"
+      style="background:#1A3820;color:#F7F3EB;border:none;border-radius:8px;padding:8px 14px;font-size:.72rem;cursor:pointer;opacity:.6;">
+      🔄 Resetear timer (solo pruebas)
+    </button>
+  </div>
+
   <script>
     /* CONFIGURACIÓN */
     const PRECIO_DOCENA = 3500;
     const PRECIO_ENVIO  = 1500;
-    const WHATSAPP_NUM  = '56912345678'; // Reemplaza aquí
-    const WEBHOOK_URL   = 'https://TU-WEBHOOK-URL-AQUI.com/pedidos'; // Reemplaza aquí
+    const WHATSAPP_NUM  = '56912345678';                          // ← reemplaza
+    const WEBHOOK_URL   = 'https://TU-WEBHOOK-URL-AQUI.com/pedidos'; // ← reemplaza
 
+    /* UTILIDADES */
     function clp(n) {
       return new Intl.NumberFormat('es-CL', {
         style: 'currency', currency: 'CLP', maximumFractionDigits: 0
       }).format(n);
     }
-
     function showToast(msg, ms = 3500) {
       const t = document.getElementById('toast');
       t.textContent = msg;
@@ -549,8 +574,9 @@
       setTimeout(() => t.classList.remove('show'), ms);
     }
 
-    /* TEMPORIZADOR */
+    /* TEMPORIZADOR — solo una vez al día via localStorage */
     let timerActive = false, timerSeconds = 0, timerInterval = null;
+
     function startTimer() {
       const KEY_DATE = 'hcc_timer_date';
       const KEY_SECS = 'hcc_timer_secs';
@@ -558,14 +584,23 @@
 
       if (localStorage.getItem(KEY_DATE) === today) {
         const rem = parseInt(localStorage.getItem(KEY_SECS) || '0', 10);
-        if (rem <= 0) { updateTimerDisplay('00:00'); return; }
+        if (rem <= 0) {
+          // Ya expiró hoy
+          updateTimerDisplay('00:00');
+          document.querySelector('.b-tag').textContent = 'Oferta expirada';
+          return;
+        }
         timerSeconds = rem;
       } else {
+        // Nuevo día → reinicia
         timerSeconds = 7 * 60;
         localStorage.setItem(KEY_DATE, today);
+        localStorage.setItem(KEY_SECS, timerSeconds.toString());
       }
+
       timerActive = true;
       renderTimer();
+
       timerInterval = setInterval(() => {
         timerSeconds--;
         if (timerSeconds <= 0) {
@@ -587,12 +622,11 @@
       const s = String(timerSeconds % 60).padStart(2, '0');
       updateTimerDisplay(`${m}:${s}`);
     }
-
     function updateTimerDisplay(v) {
       document.getElementById('timer-display').textContent = v;
     }
 
-    /* CALCULADORA */
+    /* CALCULADORA REACTIVA */
     function recalcular() {
       const docenas     = parseInt(document.getElementById('docenas').value, 10) || 1;
       const subtotal    = docenas * PRECIO_DOCENA;
@@ -611,34 +645,60 @@
     }
     document.getElementById('docenas').addEventListener('input', recalcular);
 
-    /* SUBMIT */
+    /* GOOGLE MAPS (opcional — activa cuando pongas tu API Key) */
+    function initAutocomplete() {
+      try {
+        const input = document.getElementById('direccion');
+        const ac = new google.maps.places.Autocomplete(input, {
+          componentRestrictions: { country: 'cl' },
+          fields: ['formatted_address'],
+          types: ['address']
+        });
+        ac.addListener('place_changed', () => {
+          const p = ac.getPlace();
+          if (p.formatted_address) input.value = p.formatted_address;
+        });
+      } catch(e) { /* sin API Key, el campo funciona como texto libre */ }
+    }
+    window.initAutocomplete = initAutocomplete;
+
+    /* SUBMIT: WEBHOOK + WHATSAPP */
     document.getElementById('order-form').addEventListener('submit', async function(e) {
       e.preventDefault();
+
       const telefono = document.getElementById('telefono').value.trim();
+      const telClean = telefono.replace(/[\s\-\+]/g, '');
+      if (!/^(56)?9\d{8}$/.test(telClean)) {
+        showToast('Ingresa un teléfono válido (ej: +56 9 1234 5678)', 4000);
+        document.getElementById('telefono').focus();
+        return;
+      }
+
       const nombre    = document.getElementById('nombre').value.trim();
       const direccion = document.getElementById('direccion').value.trim();
       const horario   = document.getElementById('horario').value;
 
-      if (!nombre || !direccion || !telefono) {
-        showToast('Por favor completa todos los campos.', 3500);
+      if (!nombre || !direccion) {
+        showToast('Por favor completa nombre y dirección.', 3500);
         return;
       }
 
       const { docenas, subtotal, envio, total, envioGratis } = recalcular();
 
-      // Webhook
+      /* 1) Webhook asíncrono */
       fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           timestamp: new Date().toISOString(),
-          nombre, telefono, direccion, docenas, horario, subtotal, envio, total, envioGratis
+          nombre, telefono, direccion,
+          docenas, horario, subtotal, envio, total, envioGratis
         })
       }).catch(() => {});
 
-      // WhatsApp
+      /* 2) Abrir WhatsApp */
       const msg = [
-        `🥚 *Nuevo Pedido – Huevos del Calle Calle*`, ``,
+        `🥚 *Pedido – Huevos del Calle Calle*`, ``,
         `👤 *Nombre:* ${nombre}`,
         `📞 *Teléfono:* ${telefono}`,
         `📍 *Dirección:* ${direccion}`,
@@ -647,15 +707,16 @@
         `💰 Subtotal: ${clp(subtotal)}`,
         `🚚 Despacho: ${envioGratis ? '¡GRATIS! 🎉' : clp(envio)}`,
         `✅ *Total a pagar: ${clp(total)}*`, ``,
-        `Por favor confirma disponibilidad para la entrega. ¡Gracias!`
+        `Por favor confirma disponibilidad. ¡Gracias!`
       ].join('\n');
 
-      showToast('¡Abriendo WhatsApp para confirmar pedido!');
+      showToast('¡Pedido listo! Abriendo WhatsApp…');
       setTimeout(() => window.open(
         `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(msg)}`, '_blank'
       ), 600);
     });
 
+    /* INICIO */
     startTimer();
     recalcular();
   </script>
