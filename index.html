@@ -14,20 +14,20 @@
 
   <style>
     :root {
-      --paper:    #F7F3EB;
-      --paper-2:  #EDE7D9;
-      --paper-3:  #DFD6C4;
-      --pine:     #1A3820;
-      --pine-2:   #2C5A34;
-      --ember:    #C14A08;
-      --ember-2:  #DC6B22;
-      --ink:      #141610;
-      --ink-2:    #464E38;
-      --ink-3:    #848C74;
-      --white:    #FFFFFF;
-      --r:        12px;
-      --r-lg:     20px;
-      --ease:     .22s cubic-bezier(.4,0,.2,1);
+      --paper:   #F7F3EB;
+      --paper-2: #EDE7D9;
+      --paper-3: #DFD6C4;
+      --pine:    #1A3820;
+      --pine-2:  #2C5A34;
+      --ember:   #C14A08;
+      --ember-2: #DC6B22;
+      --ink:     #141610;
+      --ink-2:   #464E38;
+      --ink-3:   #848C74;
+      --white:   #FFFFFF;
+      --r:       12px;
+      --r-lg:    20px;
+      --ease:    .22s cubic-bezier(.4,0,.2,1);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -156,6 +156,7 @@
 
     .hero-r { animation: rise .7s .12s ease both; }
 
+    /* FOTO */
     .photo-wrap {
       border-radius: var(--r-lg);
       overflow: hidden;
@@ -213,7 +214,6 @@
       outline: none; width: 100%;
       transition: border-color var(--ease), box-shadow var(--ease);
       -webkit-appearance: none;
-      appearance: none;
     }
     .field input:focus, .field select:focus {
       border-color: var(--pine-2);
@@ -313,7 +313,7 @@
     .feat-h { font-size: .87rem; font-weight: 700; color: var(--pine); margin-bottom: 6px; }
     .feat-p { font-size: .77rem; color: var(--ink-2); line-height: 1.62; }
 
-    /* TESTIMONIALS */
+    /* TESTIMONIOS */
     .testimonials { margin-top: 72px; animation: rise .7s .26s ease both; }
 
     .testi-grid {
@@ -354,7 +354,8 @@
       position: fixed; bottom: 24px; right: 24px; z-index: 200;
       background: var(--pine); color: var(--paper);
       border-radius: var(--r);
-      padding: 13px 18px; font-size: .81rem;
+      padding: 13px 18px;
+      font-size: .81rem;
       box-shadow: 0 12px 40px rgba(0,0,0,.18);
       transform: translateY(100px); opacity: 0;
       transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .4s;
@@ -366,10 +367,13 @@
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+
+    .pac-container { font-family: 'Plus Jakarta Sans', sans-serif !important; z-index: 9999; }
   </style>
 </head>
 <body>
 
+  <!-- BANNER -->
   <div id="banner">
     <span style="opacity:.55">Oferta especial activa</span>
     <span class="b-sep">·</span>
@@ -380,8 +384,10 @@
 
   <div class="page">
 
+    <!-- HERO -->
     <section class="hero">
 
+      <!-- Texto izquierda -->
       <div class="hero-l">
         <span class="eyebrow">Delivery en Valdivia &nbsp;·&nbsp; 08:00–18:00 hrs</span>
 
@@ -391,7 +397,7 @@
         </h1>
 
         <p class="hero-desc">
-          Directo de nuestra granja a tu mesa. Recolectados cada mañana a orillas del río Calle Calle — sin intermediarios, sin aditivos, solo frescura real.
+          Directamente a tu mesa, recolectados cada mañana a orillas del río Calle Calle — sin intermediarios, solo frescura real.
         </p>
 
         <div class="chips">
@@ -406,9 +412,12 @@
         </div>
       </div>
 
+      <!-- Foto + formulario derecha -->
       <div class="hero-r">
+
+        <!-- huevos.jpg debe estar en la raíz del repositorio junto a index.html -->
         <div class="photo-wrap">
-          <img src="huevos.jpg" alt="Huevos frescos del Calle Calle, Valdivia" />
+          <img src="huevos.jpg" alt="Huevos del Calle Calle, Valdivia" />
         </div>
 
         <div class="form-card">
@@ -416,6 +425,7 @@
           <p class="form-sub">Completa el formulario y te confirmamos por WhatsApp al instante.</p>
 
           <form id="order-form" novalidate>
+
             <div class="r2">
               <div class="field">
                 <label for="nombre">Nombre</label>
@@ -429,7 +439,7 @@
 
             <div class="field">
               <label for="direccion">Dirección de entrega</label>
-              <input type="text" id="direccion" placeholder="Escribe tu dirección en Valdivia…" required />
+              <input type="text" id="direccion" placeholder="Ej: Picarte 1234, Valdivia" required />
             </div>
 
             <div class="r2">
@@ -468,42 +478,45 @@
               Pedir por WhatsApp &nbsp;↗
             </button>
             <p class="form-foot">Sin spam. Tus datos están seguros.</p>
+
           </form>
         </div>
       </div>
 
     </section>
 
+    <!-- FEATURES -->
     <section class="why">
       <div class="sec-head">
         <span class="sec-label">Por qué elegirnos</span>
         <span class="sec-rule"></span>
       </div>
-      <h2 class="why-h">Frescura y sabor real, directo a tu puerta en Valdivia</h2>
+      <h2 class="why-h">Llevando lo mejor del sur a los hogares de Valdivia</h2>
       <div class="features">
         <div class="feat">
           <div class="feat-n">01</div>
-          <div class="feat-h">Frescura garantizada</div>
-          <p class="feat-p">Recolectamos cada mañana para que recibas los huevos en su mejor estado.</p>
+          <div class="feat-h">Crianza natural</div>
+          <p class="feat-p">Nuestras gallinas crecen libres, sin jaulas, en praderas del sur de Chile.</p>
         </div>
         <div class="feat">
           <div class="feat-n">02</div>
-          <div class="feat-h">Producción local</div>
-          <p class="feat-p">Granja propia en Valdivia. Sin intermediarios, precio justo y producto fresco.</p>
+          <div class="feat-h">Recolección diaria</div>
+          <p class="feat-p">Cada mañana recogemos los huevos para garantizar frescura máxima en tu entrega.</p>
         </div>
         <div class="feat">
           <div class="feat-n">03</div>
           <div class="feat-h">Delivery puntual</div>
-          <p class="feat-p">Entregamos en toda Valdivia de 08:00 a 18:00 en el horario que eliges.</p>
+          <p class="feat-p">Entregamos en toda Valdivia de 08:00 a 18:00 en el horario que tú eliges.</p>
         </div>
         <div class="feat">
           <div class="feat-n">04</div>
           <div class="feat-h">Empaque seguro</div>
-          <p class="feat-p">Embalaje cuidadoso para que cada huevo llegue perfecto a tu puerta.</p>
+          <p class="feat-p">Embalaje biodegradable para que cada huevo llegue perfecto a tu puerta.</p>
         </div>
       </div>
     </section>
 
+    <!-- TESTIMONIOS -->
     <section class="testimonials">
       <div class="sec-head">
         <span class="sec-label">Lo que dicen nuestros clientes</span>
@@ -512,17 +525,17 @@
       <div class="testi-grid">
         <div class="testi">
           <div class="stars">★★★★★</div>
-          <blockquote>"Realmente muy buenos, mucho mejor que en el supermercado."</blockquote>
+          <blockquote>"Muy buena calidad, mucho mejor que en el super. Se nota la diferencia."</blockquote>
           <cite>Valentina R. — Las Ánimas</cite>
         </div>
         <div class="testi">
           <div class="stars">★★★★★</div>
-          <blockquote>"Buen color y sabor, el delivery siempre puntual. Nada que decir."</blockquote>
+          <blockquote>"Buen color y sabor, el delivery siempre puntual. Los pido todas las semanas."</blockquote>
           <cite>Pablo M. — Centro Valdivia</cite>
         </div>
         <div class="testi">
           <div class="stars">★★★★★</div>
-          <blockquote>"El sabor no tiene comparación con los del supermercado. Los recomiendo."</blockquote>
+          <blockquote>"Me gustaron mucho, el sabor no tiene comparación con los del supermercado."</blockquote>
           <cite>Francisca A. — Isla Teja</cite>
         </div>
       </div>
@@ -533,17 +546,18 @@
   <div id="toast"></div>
 
   <script>
+    /* CONFIGURACIÓN */
     const PRECIO_DOCENA = 3500;
     const PRECIO_ENVIO  = 1500;
-    const WHATSAPP_NUM  = '56912345678'; // ← reemplaza con tu número real
+    const WHATSAPP_NUM  = '56912345678';                          // ← reemplaza
     const WEBHOOK_URL   = 'https://TU-WEBHOOK-URL-AQUI.com/pedidos'; // ← reemplaza
 
+    /* UTILIDADES */
     function clp(n) {
       return new Intl.NumberFormat('es-CL', {
         style: 'currency', currency: 'CLP', maximumFractionDigits: 0
       }).format(n);
     }
-
     function showToast(msg, ms = 3500) {
       const t = document.getElementById('toast');
       t.textContent = msg;
@@ -551,27 +565,29 @@
       setTimeout(() => t.classList.remove('show'), ms);
     }
 
-    /* TIMER — solo una vez al día */
+    /* TEMPORIZADOR — solo una vez al día via localStorage */
     let timerActive = false, timerSeconds = 0, timerInterval = null;
 
     function startTimer() {
-      const KEY_DATE = 'hcc_timer_date', KEY_SECS = 'hcc_timer_secs';
-      const today = new Date().toDateString();
-      const saved = localStorage.getItem(KEY_DATE);
-      if (saved === today) {
+      const KEY_DATE = 'hcc_timer_date';
+      const KEY_SECS = 'hcc_timer_secs';
+      const today    = new Date().toDateString();
+
+      if (localStorage.getItem(KEY_DATE) === today) {
         const rem = parseInt(localStorage.getItem(KEY_SECS) || '0', 10);
-        if (rem > 0) { timerSeconds = rem; }
-        else { updateTimerDisplay('00:00'); return; }
+        if (rem <= 0) { updateTimerDisplay('00:00'); return; }
+        timerSeconds = rem;
       } else {
         timerSeconds = 7 * 60;
         localStorage.setItem(KEY_DATE, today);
       }
+
       timerActive = true;
       renderTimer();
+
       timerInterval = setInterval(() => {
         timerSeconds--;
         if (timerSeconds <= 0) {
-          timerSeconds = 0;
           clearInterval(timerInterval);
           timerActive = false;
           localStorage.setItem(KEY_SECS, '0');
@@ -584,6 +600,7 @@
         }
       }, 1000);
     }
+
     function renderTimer() {
       const m = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
       const s = String(timerSeconds % 60).padStart(2, '0');
@@ -593,33 +610,50 @@
       document.getElementById('timer-display').textContent = v;
     }
 
-    /* CALCULADORA */
+    /* CALCULADORA REACTIVA */
     function recalcular() {
-      const docenas  = parseInt(document.getElementById('docenas').value, 10) || 1;
-      const subtotal = docenas * PRECIO_DOCENA;
-      const gratis   = timerActive && docenas > 2;
-      const envio    = gratis ? 0 : PRECIO_ENVIO;
-      const total    = subtotal + envio;
+      const docenas     = parseInt(document.getElementById('docenas').value, 10) || 1;
+      const subtotal    = docenas * PRECIO_DOCENA;
+      const envioGratis = timerActive && docenas > 2;
+      const envio       = envioGratis ? 0 : PRECIO_ENVIO;
+      const total       = subtotal + envio;
 
       document.getElementById('subtotal-label').textContent = `Subtotal (${docenas} doc.)`;
       document.getElementById('subtotal-val').textContent   = clp(subtotal);
-      document.getElementById('envio-val').innerHTML = gratis
+      document.getElementById('envio-val').innerHTML = envioGratis
         ? `${clp(0)} <span class="free-tag">GRATIS</span>`
         : clp(envio);
       document.getElementById('total-val').textContent = clp(total);
 
-      return { docenas, subtotal, envio, total, gratis };
+      return { docenas, subtotal, envio, total, envioGratis };
     }
     document.getElementById('docenas').addEventListener('input', recalcular);
 
-    /* SUBMIT */
+    /* GOOGLE MAPS (opcional — activa cuando pongas tu API Key) */
+    function initAutocomplete() {
+      try {
+        const input = document.getElementById('direccion');
+        const ac = new google.maps.places.Autocomplete(input, {
+          componentRestrictions: { country: 'cl' },
+          fields: ['formatted_address'],
+          types: ['address']
+        });
+        ac.addListener('place_changed', () => {
+          const p = ac.getPlace();
+          if (p.formatted_address) input.value = p.formatted_address;
+        });
+      } catch(e) { /* sin API Key, el campo funciona como texto libre */ }
+    }
+    window.initAutocomplete = initAutocomplete;
+
+    /* SUBMIT: WEBHOOK + WHATSAPP */
     document.getElementById('order-form').addEventListener('submit', async function(e) {
       e.preventDefault();
 
       const telefono = document.getElementById('telefono').value.trim();
       const telClean = telefono.replace(/[\s\-\+]/g, '');
       if (!/^(56)?9\d{8}$/.test(telClean)) {
-        showToast('Ingresa un teléfono chileno válido (ej: +56 9 1234 5678)', 4000);
+        showToast('Ingresa un teléfono válido (ej: +56 9 1234 5678)', 4000);
         document.getElementById('telefono').focus();
         return;
       }
@@ -633,14 +667,20 @@
         return;
       }
 
-      const { docenas, subtotal, envio, total, gratis } = recalcular();
+      const { docenas, subtotal, envio, total, envioGratis } = recalcular();
 
+      /* 1) Webhook asíncrono */
       fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ timestamp: new Date().toISOString(), nombre, telefono, direccion, docenas, horario, subtotal, envio, total })
+        body: JSON.stringify({
+          timestamp: new Date().toISOString(),
+          nombre, telefono, direccion,
+          docenas, horario, subtotal, envio, total, envioGratis
+        })
       }).catch(() => {});
 
+      /* 2) Abrir WhatsApp */
       const msg = [
         `🥚 *Pedido – Huevos del Calle Calle*`, ``,
         `👤 *Nombre:* ${nombre}`,
@@ -649,15 +689,18 @@
         `🕐 *Horario:* ${horario} hrs`,
         `📦 *Docenas:* ${docenas}`, ``,
         `💰 Subtotal: ${clp(subtotal)}`,
-        `🚚 Despacho: ${gratis ? '¡GRATIS! 🎉' : clp(envio)}`,
+        `🚚 Despacho: ${envioGratis ? '¡GRATIS! 🎉' : clp(envio)}`,
         `✅ *Total a pagar: ${clp(total)}*`, ``,
         `Por favor confirma disponibilidad. ¡Gracias!`
       ].join('\n');
 
       showToast('¡Pedido listo! Abriendo WhatsApp…');
-      setTimeout(() => window.open(`https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(msg)}`, '_blank'), 600);
+      setTimeout(() => window.open(
+        `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(msg)}`, '_blank'
+      ), 600);
     });
 
+    /* INICIO */
     startTimer();
     recalcular();
   </script>
